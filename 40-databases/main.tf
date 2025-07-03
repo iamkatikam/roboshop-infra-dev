@@ -1,3 +1,4 @@
+# mongodb
 resource "aws_instance" "mongodb" {
   ami           = local.ami_id
   instance_type = "t3.micro"
@@ -33,7 +34,6 @@ resource "terraform_data" "mongodb" {
         "chmod +x /tmp/bootstrap.sh",
         "sudo sh /tmp/bootstrap.sh mongodb"
      ]
-    
   }
 }
 
@@ -72,7 +72,6 @@ resource "terraform_data" "redis" {
         "chmod +x /tmp/bootstrap.sh",
         "sudo sh /tmp/bootstrap.sh redis"
      ]
-    
   }
 }
 
@@ -155,7 +154,7 @@ resource "terraform_data" "rabbitmq" {
 
 resource "aws_route53_record" "mongodb" {
   zone_id = var.zone_id
-  name    = "mongodb-${var.environment}.${var.zone_name}" #mongodb-dev.daws84s.site
+  name    = "mongodb-${var.environment}.${var.zone_name}" 
   type    = "A"
   ttl     = 1
   records = [aws_instance.mongodb.private_ip]
