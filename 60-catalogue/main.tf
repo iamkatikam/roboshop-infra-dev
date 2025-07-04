@@ -12,14 +12,6 @@ resource "aws_lb_target_group" "catalogue" {
     unhealthy_threshold = 3
     matcher             = "200-299"
   }
-
-  tags = merge(
-    local.common_tags,
-    {
-      Name = "${var.project}-${var.environment}-catalogue-tg"
-    }
-  )
-  
 }
 
 resource "aws_instance" "catalogue" {
