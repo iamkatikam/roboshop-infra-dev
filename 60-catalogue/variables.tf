@@ -8,3 +8,6 @@ variable "environment" {
   
 }
 
+variable "zone_name" {
+    default = "rameshaws.site"
+}
