@@ -1,6 +1,5 @@
 variable "project" {
     default = "roboshop"
-  
 }
 
 variable "environment" {
@@ -11,14 +10,8 @@ variable "frontend_sg_name" {
     default = "frontend"
 }
 
-variable "frontend_sg_name_description" {
-    default = "Created EC2 instance"
-    type = string
-}
-
-variable "sg_tags" {
-    type = map(string)
-    default = {}
+variable "frontend_sg_description" {
+    default = "created sg for frontend instance"
 }
 
 variable "bastion_sg_name" {
@@ -26,21 +19,25 @@ variable "bastion_sg_name" {
 }
 
 variable "bastion_sg_description" {
-    default = "Created EC2 instance for bastion host"
-}
-variable "mongodb_vpn_ports" {
-  default = [22,27017]
+    default = "created sg for bastion instance"
 }
 
-variable "redis_vpn_ports" {
-  default = [22,6379]
+variable "mongodb_ports_vpn" {
+    default = [22, 27017]
 }
 
-variable "mysql_vpn_ports" {
-    default = [22,3306]
-  
+variable "redis_ports_vpn" {
+    default = [22, 6379]
 }
 
-variable "rabbitmq_vpn_ports" {
-  default = [22,5672]
+variable "mysql_ports_vpn" {
+    default = [22, 3306]
+}
+
+variable "rabbitmq_ports_vpn" {
+    default = [22, 5672]
+}
+variable "sg_tags" {
+    type = map(string)
+    default = {}
 }
